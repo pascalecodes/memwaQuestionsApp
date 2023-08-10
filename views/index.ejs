@@ -27,10 +27,12 @@
                 <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
             </form>
             <ul class="todo-list">
+                <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
                     <li id="question-<%= question.id %>"  class="todo-list-item">
-                        <div class="todo-list-item-title">
-                            <%= question.name %>
+                        <!-- <span class="number"><%= index %>.</span> -->
+                        <div class="number todo-list-item-title">
+                            <%= index %>. <%= question.name %>
                         </div>
                         <div class="todo-list-item-content">
                             <%= question.tag %>
@@ -38,6 +40,7 @@
                         <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span></a>
                         <a href="/remove/<%=question._id %>" class="remove"><span class='fas fa-times'></span></a> 
                     </li>
+                    <% index++; %>
                 <% }) %>
             </ul>
         </section>
