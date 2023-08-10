@@ -33,7 +33,8 @@
                             </form>
                         </li>
                         <% } else { %>
-                                    <li class="todo-list-item">
+                            <!-- code commented out to not display every question in the database while one is being edited, uncomment to display all questions -->
+                                    <!-- <li class="todo-list-item">
                                         <div class="todo-list-item-title">
                                             <%= index %>. <%= question.name %>
                                         </div>
@@ -42,12 +43,15 @@
                                         </div>
                                         <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span></a>
                                         <a href="/remove/<%=question._id %>" class="remove"><span class='fas fa-times'></span></a> 
-                                    </li>
+                                    </li> -->
                                     <% index++; %>
                                 <% } %>
                                 <% }) %>
+                                <p>Total questions: <%= memwaQuestions.length %></p>
                             </ul> 
-        </section>
+                        
+            </section>
+        
     </section>
 
 </body>
