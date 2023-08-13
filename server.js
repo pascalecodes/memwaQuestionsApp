@@ -62,7 +62,7 @@ app.post('/api/questions', (req, res) => {
   const question = req.body;
 
   // Add the question to the database
-  //db.addQuestion(question);
+  db.addQuestion(question);
 
   // Return the question to the client
   res.json(question);
@@ -87,7 +87,7 @@ app.post('/api/answers', (req, res) => {
   const answer = req.body.answer;
 
   // Save the answer to the database
-  //db.saveAnswer(questionID, answer);
+  db.saveAnswer(questionID, answer);
 
   // Return a success message to the client
   res.json({ success: true });
@@ -98,7 +98,7 @@ app.post('/api/answers', (req, res) => {
 // Create a new route for the questions page
 app.get('/questions', (req, res) => {
   // Get the user's profile from the database
-//   const user = db.getUser(req.session.userID);
+//  const user = db.getUser(req.session.userID);
 
   // Render the questions page with the user's questions
   res.render('questions', {
