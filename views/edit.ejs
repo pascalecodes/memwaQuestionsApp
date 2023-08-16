@@ -17,14 +17,14 @@
       <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <section class="todo-container">
+    <section class="question-container">
         <h2>Edit Question Content</h2>
-        <section class='todo'>
-            <ul class="todo-list">
+        <section class='question'>
+            <ul class="question-list">
                 <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
                     <% if (question._id==idQuestion) { %>
-                        <li class="todo-list-item">
+                        <li class="question-list-item">
                             <form action= "/edit/<%= question._id %>"method = "POST">
                                 <textarea rows="2" cols="80" name="name"><%=question.name %></textarea>
                                 <input type="text" name="tag" value="<%=question.tag %>">
@@ -34,11 +34,11 @@
                         </li>
                         <% } else { %>
                             <!-- code commented out to not display every question in the database while one is being edited, uncomment to display all questions -->
-                                    <!-- <li class="todo-list-item">
-                                        <div class="todo-list-item-title">
+                                    <!-- <li class="question-list-item">
+                                        <div class="question-list-item-title">
                                             <%= index %>. <%= question.name %>
                                         </div>
-                                        <div class="todo-list-item-content">
+                                        <div class="question-list-item-content">
                                             <%= question.tag %>
                                         </div>
                                         <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span></a>
