@@ -17,24 +17,24 @@
       <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <section class="todo-container">
+    <section class="question-container">
         <h2>Memwa Questions Database</h2>
         <p>Total questions: <%= memwaQuestions.length %></p>
-        <section class='todo'>
-            <form action="/" method="POST" class="todo-header">
+        <section class='question'>
+            <form action="/" method="POST" class="question-header">
                 <textarea rows="2" cols="80" name="name">question</textarea>
                 <input type="text" name="tag" value="tag">
                 <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
             </form>
-            <ul class="todo-list">
+            <ul class="question-list">
                 <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
-                    <li id="question-<%= question.id %>"  class="todo-list-item">
+                    <li id="question-<%= question.id %>"  class="question-list-item">
                         <!-- <span class="number"><%= index %>.</span> -->
-                        <div class="number todo-list-item-title">
+                        <div class="number question-list-item-title">
                             <%= index %>. <%= question.name %>
                         </div>
-                        <div class="todo-list-item-content">
+                        <div class="question-list-item-content">
                             <%= question.tag %>
                         </div>
                         <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span></a>
