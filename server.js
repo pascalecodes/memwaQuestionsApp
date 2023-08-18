@@ -84,6 +84,20 @@ app
         })
     })
 
+//new route for getting questions
+app.get('/questions', async(req, res)=> {
+    const questions = await MemwaQuestion.find()
+    res.json(questions)
+})
+
+//check to see if the question has already been called from the database
+app.get('/questions/:id/pulled', async (req, res) => {
+    const id = req.params.id
+    const question = await MemwaQuestion.findById(id)
+    const pulled = question.pulled
+    res.json({ pulled })
+})
+
 //Set port to initialize our server
 app.listen(process.env.PORT || PORT, () =>{
     console.log(`Server is running on port ${process.env.PORT}`)
