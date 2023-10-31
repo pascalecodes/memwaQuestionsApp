@@ -1,6 +1,6 @@
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -8,15 +8,10 @@ body {
     background: rgba(181, 200, 255, 0.15);
     font-family: "Edu TAS Beginner", sans-serif;
 }
+
 .question-container {
     color: #3563E9;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1200px;
-    padding: 20px;
-    transform: translate(-50%, -50%); */
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -56,49 +51,44 @@ textarea {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    background-color: #3563E9;; 
+    background-color: #3563E9;
     font-family: "Edu TAS Beginner", sans-serif;
 }
 
-ul{
-    list-style: none;  
+ul {
+    list-style: none;
 }
 
 .question-list-item {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 2px;
+    margin-top: 2px;
     border: none;
     border-radius: 5px;
-    background: rgba(0,0,0,0.3);
-    /* display: flex;
-    flex-direction: row; */
+    /* background: rgba(0, 0, 0, 0.3); */
+    display: flex;
+    align-items: center; /* Added for aligning elements horizontally */
 }
 
-/* .question-list-item-title {
-    font-size: .8rem;
-    margin-left: 10px;
-    margin-right: 10px;
-   
-} */
 .question-list-item-content {
-    font-size: .8rem;
+    font-size: 0.8rem;
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
+    flex-grow: 1; /* Added to make the content take remaining space */
 }
 
-.question-list-item form{
-    width: 100%;
-    /* display: flex; */
+.question-list-item form {
+    flex-grow: 1; /* Added to make the form take remaining space */
 }
 
 .question-list-item input {
-    /* flex-grow: 2; */
     margin-right: 20px;
     border-radius: 5px;
+    flex-grow: 1; /* Added to make the input take remaining space */
 }
 
-.question-list-item .confirm, .question-list-item .cancel {
+.question-list-item .confirm,
+.question-list-item .cancel {
     color: white;
     text-decoration: none;
     border: none;
@@ -109,32 +99,14 @@ ul{
     margin-left: 10px;
     max-height: 30px;
     font-family: "Edu TAS Beginner", sans-serif;
-    /* display: block; */
 }
 
 .question-list-item .cancel {
     background-color: red;
 }
-/* .question-list-item .cancel {
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px;
-    background-color: red;
-    margin-left: 10px;
-    max-height: 30px;
-    font-family: "Edu TAS Beginner", sans-serif;
-    display: block;
-} */
 
-/* .question-list-item div {
-    flex-grow: 2;
-} */
-
-.question-list-item .edit{
-    color: #3563E9;;
+.question-list-item .edit {
+    color: #3563E9;
     margin-right: 10px;
     cursor: pointer;
     text-decoration: none;
