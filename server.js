@@ -91,6 +91,34 @@ app.get('/questions', async(req, res)=> {
     res.json(questions)
 })
 
+//search question
+app.get('/search', async(req, res) => {
+  const query = req.query.query;
+  let questions
+  
+  // Perform the search based on the query
+//   MemwaQuestion.find({$or: { name: { $regex: query, $options: 'i' }}, {tag: {$regex: query, $options: 'i'}}},(err, questions) => {
+//     if (err) return res.status(500).send(err);
+//     console.log(questions)
+    
+//     // Render the search results template with the matching questions
+//     res.render('searchResults', { questions: questions });
+//   });
+
+  MemwaQuestion.find({
+    $or: [
+        { name: { $regex: query, $options: 'i' } },
+        { tag: { $regex: query, $options: 'i' } }
+      ]
+  }, (err, questions) => {
+    if (err) return res.status(500).send(err);
+    // console.log(questions);
+    
+    // Render the search results template with the matching questions
+    res.render('searchResults', { questions: questions, query:query });
+  });
+});
+
 
 //check to see if the question has already been called from the database
 app.get('/questions/:id/pulled', async (req, res) => {
