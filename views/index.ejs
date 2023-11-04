@@ -16,16 +16,20 @@
       <!-- stylesheet link -->
       <link rel="stylesheet" href="/style.css">
 </head>
+
+
 <body>
     <section class="question-container">
         <h2>Memwa Questions Database</h2>
         <p>Total questions: <%= memwaQuestions.length %></p>
-        <section class='question'>
-            <form action="/" method="POST" class="question-header">
-                <textarea rows="2" cols="80" name="name">question</textarea>
-                <input type="text" name="tag" value="tag">
-                <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
-            </form>
+        <div class='question'>
+            <div class="search">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            
             <ul class="question-list">
                 <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
@@ -43,7 +47,12 @@
                     <% index++; %>
                 <% }) %>
             </ul>
-        </section>
+        </div>
+        <form action="/" method="POST" class="question-header">
+            <textarea rows="2" cols="80" name="name">question</textarea>
+            <input type="text" name="tag" value="tag">
+            <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
+        </form>
     </section>
 
 </body>
