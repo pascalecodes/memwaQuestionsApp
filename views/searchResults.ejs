@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memwa Search Results</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+      <!-- stylesheet link -->
+      <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <section class="question-container">
+        <h2>Search Results  "<%= query %>"</h2>
+
+        <!-- <ul>
+          <% questions.forEach(function(question) { %>
+            <li><%= question.name %>  <%= question.tag %></li>
+          <% }); %>
+        </ul> -->
+        <section class='question'>
+            <ul class="question-list">
+                <% let index = 1; %>
+                <% questions.forEach(question => {%>
+                    <li id="question-<%= question.id %>"  class="question-list-item">
+                    
+                        <div class="number question-list-item-title">
+                            <%= index %>. <%= question.name %>
+                        </div>
+                        <div class="question-list-item-content">
+                            <%= question.tag %>
+                            <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span> </a>
+                            <a href="/remove/<%=question._id %>" class="remove" onclick="return confirm('Are you sure you want to delete this question?');"><span class='fas fa-times'></span></a>
+                        </div>
+                    </li>
+                    <% index++; %>
+                <% }) %>
+            </ul>
+
+        </section>
+
+<!-- <a href="/" class="btn-floating"> Home</a> -->
+<!-- <button type="home" ><a href="/" class="home"> HOME </a></button> -->
+<button onclick="window.location.href = '/' " class="home">HOME</button>
+    </section>
+</body>
+
+
+</html>
