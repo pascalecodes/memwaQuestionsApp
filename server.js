@@ -87,7 +87,7 @@ app
 //new route for getting questions
 app.get('/questions', async(req, res)=> {
     const questions = await MemwaQuestion.find()
-    res.header('Access-Control-Allow-Origin', 'http://localhost:8130');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
     res.json(questions)
 })
 
