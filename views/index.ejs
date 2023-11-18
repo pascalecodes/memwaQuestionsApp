@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memwa Questions App</title>
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/logo.svg"/>
 
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,16 +20,19 @@
 
 
 <body>
-    <section class="question-container">
+    <header class="header">
+        <img class="logo" src="/logo.svg" alt="MEMWA ">
         <h2>Memwa Questions Database</h2>
+    </header>
+    <section class="question-container">
+        <div class="search">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <p>Total questions: <%= memwaQuestions.length %></p>
         <div class='question'>
-            <div class="search">
-                <form action="/search" method="GET">
-                    <input type="text" name="query" placeholder="Search...">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
             
             <ul class="question-list">
                 <% let index = 1; %>
