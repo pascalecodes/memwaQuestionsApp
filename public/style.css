@@ -10,12 +10,11 @@ body {
 }
 
 .search {
-    display: flex;
-    flex-direction: column;
     align-items:center ;
+    justify-content: center;
 }
 
-.question-container {
+.header, .question-container {
     color: #3563E9;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
