@@ -24,14 +24,17 @@
         <img class="logo" src="/logo.svg" alt="MEMWA ">
         <h2>Memwa Questions Database</h2>
     </header>
+    
     <section class="question-container">
         <div class="search">
+            <p>Total questions: <%= memwaQuestions.length %></p>
             <form action="/search" method="GET">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">Search</button>
             </form>
+            
         </div>
-        <p>Total questions: <%= memwaQuestions.length %></p>
+        
         <div class='question'>
             
             <ul class="question-list">
