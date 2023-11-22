@@ -14,8 +14,14 @@ body {
     justify-content: center;
 }
 
-.header, .question-container {
-    color: #3563E9;
+.header{
+  color: #3563E9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.question-container {
+    /* color: #3563E9; */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     display: flex;
