@@ -23,20 +23,18 @@
     <header class="header">
         <img class="logo" src="/logo.svg" alt="MEMWA ">
         <h2>Memwa Questions Database</h2>
+        <p>Total questions: <%= memwaQuestions.length %></p>
     </header>
     
     <section class="question-container">
-        <div class="search">
-            <p>Total questions: <%= memwaQuestions.length %></p>
+        <div class="search"> 
             <form action="/search" method="GET">
                 <input type="text" name="query" placeholder="Search...">
                 <button type="submit">Search</button>
-            </form>
-            
+            </form>   
         </div>
         
         <div class='question'>
-            
             <ul class="question-list">
                 <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
@@ -55,11 +53,14 @@
                 <% }) %>
             </ul>
         </div>
-        <form action="/" method="POST" class="question-header">
-            <textarea rows="2" cols="80" name="name">question</textarea>
-            <input type="text" name="tag" value="tag">
-            <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
-        </form>
+        <div>
+            <form action="/" method="POST" class="question-header">
+                <textarea rows="2" cols="80" name="name" placeholder="question"></textarea>
+                <input type="text" name="tag" placeholder="tag">
+                <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
+            </form>
+        </div>
+       
     </section>
 
 </body>
