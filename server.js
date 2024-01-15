@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
+const passport = require("passport");
 const MemwaQuestion = require('./models/questions')
 require('dotenv').config()
 
@@ -11,11 +12,20 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 
+// Passport config
+require("./config/passport")(passport);
+
 //Connect to the database
 mongoose.connect(process.env.DB_STRING, 
     {useNewUrlParser: true}, 
     () => (console.log(`Connected to database: ${mongoose.connection.name}`))
 )
+
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 //get method
 app.get('/', async (req, res) =>{
