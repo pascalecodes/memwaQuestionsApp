@@ -4,8 +4,12 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const passport = require("passport");
+const session = require("express-session");
 const MemwaQuestion = require('./models/questions')
-require('dotenv').config()
+const { ensureAuth, ensureGuest } = require("./middleware/auth");
+//require('dotenv').config()
+require("dotenv").config({ path: "./config/.env" });
+
 
 //Set the middleware
 app.set('view engine', 'ejs')
