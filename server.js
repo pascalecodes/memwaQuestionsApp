@@ -1,11 +1,12 @@
 //Declare the variables
 const express = require('express')
 const app = express()
-const cors = require('cors')
 const mongoose = require('mongoose')
 const passport = require("passport");
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const cors = require('cors')
+
+const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 
 const methodOverride = require("method-override");
