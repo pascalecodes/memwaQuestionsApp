@@ -6,7 +6,7 @@ const passport = require("passport");
 const session = require("express-session");
 const cors = require('cors')
 
-const MongoStore = require("connect-mongo")(session);
+//const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 
 const methodOverride = require("method-override");
@@ -34,7 +34,7 @@ app.use(
       secret: "keyboard cat",
       resave: false,
       saveUninitialized: false,
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      //store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   );
   
