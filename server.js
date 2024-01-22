@@ -52,7 +52,7 @@ mongoose.connect(process.env.DB_STRING,
 
 
 //get method
-app.get('/', async (req, res) =>{
+app.get('/', ensureGuest, async (req, res) =>{
     try {
         MemwaQuestion.find({}, (err, questions) => {
             res.render('index.ejs', {
@@ -65,7 +65,7 @@ app.get('/', async (req, res) =>{
 })
 
 //post method= send to database
-app.post('/', async (req, res) => {
+app.post('/', ensureAuth, async (req, res) => {
     const memwaQuestion = new MemwaQuestion (
         {
             name: req.body.name,
