@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const passport = require("passport");
 const session = require("express-session");
 const cors = require('cors')
+const authController = require("./controller/auth");
 
 //const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
@@ -82,6 +83,19 @@ app.post('/', ensureAuth, async (req, res) => {
     }
 })
 
+//new route for signup
+app.get('/signup', authController.getSignup)
+app.post("/signup", authController.postSignup);
+
+//new route for profile page
+app.get("/profile", ensureAuth, async (req, res) => {
+    try {
+      res.render("profile.ejs");
+    } catch (err) {
+      console.log(err);
+      res.render('error/500')
+    }
+  })
 
 //update or edit method
 app
