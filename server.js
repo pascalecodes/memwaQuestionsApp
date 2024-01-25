@@ -87,6 +87,10 @@ app.post('/', ensureAuth, async (req, res) => {
 app.get('/signup', authController.getSignup)
 app.post("/signup", authController.postSignup);
 
+//route for login
+app.get("/login", authController.getLogin);
+app.post("/login", authController.postLogin);
+
 //new route for profile page
 app.get("/profile", ensureAuth, async (req, res) => {
     try {
