@@ -1,5 +1,5 @@
 //Declare the variables
-const express = require('express')
+const express = require("express")
 const app = express()
 const mongoose = require('mongoose')
 const passport = require("passport");
@@ -7,10 +7,10 @@ const session = require("express-session");
 const cors = require('cors')
 const authController = require("./controller/auth");
 
-//const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
-
 const methodOverride = require("method-override");
+const connectDB = require("./config/database");
 const MemwaQuestion = require('./models/questions')
 const { ensureAuth, ensureGuest } = require("./middleware/auth");
 //require('dotenv').config()
@@ -19,6 +19,9 @@ require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
+
+//Connect To Database
+connectDB();
 
 //Set the middleware
 app.set('view engine', 'ejs')
