@@ -38,7 +38,7 @@ app.use(
       secret: "keyboard cat",
       resave: false,
       saveUninitialized: false,
-      //store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   );
   
@@ -56,7 +56,7 @@ mongoose.connect(process.env.DB_STRING,
 
 
 //get method
-app.get('/', ensureGuest, async (req, res) =>{
+app.get('/', async (req, res) =>{
     try {
         MemwaQuestion.find({}, (err, questions) => {
             res.render('index.ejs', {
@@ -94,10 +94,13 @@ app.post("/signup", authController.postSignup);
 app.get("/login", authController.getLogin);
 app.post("/login", authController.postLogin);
 
+//route for logout
+app.get("/logout", authController.logout);
+
 //new route for profile page
 app.get("/profile", ensureAuth, async (req, res) => {
     try {
-      res.render("profile.ejs");
+      res.render("profile.ejs", {user: req.user});
     } catch (err) {
       console.log(err);
       res.render('error/500')
