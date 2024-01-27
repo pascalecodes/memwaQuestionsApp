@@ -46,6 +46,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Use flash messages for errors, info, ect...
+app.use(flash());
 
 
 //Connect to the database
@@ -69,7 +71,7 @@ app.get('/', async (req, res) =>{
 })
 
 //post method= send to database
-app.post('/', ensureAuth, async (req, res) => {
+app.post('/', async (req, res) => {
     const memwaQuestion = new MemwaQuestion (
         {
             name: req.body.name,
