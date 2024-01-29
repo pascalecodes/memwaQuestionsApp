@@ -18,13 +18,30 @@
       <link rel="stylesheet" href="/style.css">
 </head>
 
-
 <body>
     <header class="header">
+      
         <img class="logo" src="/logo.svg" alt="MEMWA ">
+        <div class="col-lg-auto me-lg-auto justify-content-right">
+            <!-- <button><a href="/login" type="button" class="btn btn-outline-light me-2"> Login </a></button> -->
+            <button>
+                <% if (user) { %>
+                <a href="/profile" type="button" class="btn btn-outline-light me-2">Profile</a>
+                <% } else { %>
+                <a href="/login" type="button" class="btn btn-outline-light me-2">Login</a>
+                <% } %>
+            </button>
+            <!-- <button><a href="/signup" type="button" class="btn btn-warning"> Sign-up </a></button> -->
+            <% if (!user) { %>
+                <button>
+                  <a href="/signup" type="button" class="btn btn-outline-light me-2">Signup</a>
+                </button>
+            <% } %>
+        </div>
         <h2>Memwa Questions Database</h2>
         <p>Total questions: <%= memwaQuestions.length %></p>
     </header>
+
     
     <section class="question-container">
         <div class="search"> 
@@ -45,14 +62,17 @@
                         </div>
                         <div class="question-list-item-content">
                             <%= question.tag %>
+                            <% if (user) { %>
                             <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span> </a>
                             <a href="/remove/<%=question._id %>" class="remove" onclick="return confirm('Are you sure you want to delete this question?');"><span class='fas fa-times'></span></a>
+                            <% } %>
                         </div>
                     </li>
                     <% index++; %>
                 <% }) %>
             </ul>
         </div>
+        <% if (user) { %>
         <div>
             <form action="/" method="POST" class="question-header">
                 <textarea rows="2" cols="80" name="name" placeholder="question"></textarea>
@@ -60,6 +80,7 @@
                 <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
             </form>
         </div>
+        <% } %>
        
     </section>
 
