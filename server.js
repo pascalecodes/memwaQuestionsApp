@@ -62,6 +62,7 @@ app.get('/', async (req, res) =>{
     try {
         MemwaQuestion.find({}, (err, questions) => {
             res.render('index.ejs', {
+                user: req.user,
                 memwaQuestions: questions
             })
         })
@@ -109,30 +110,6 @@ app.get("/profile", ensureAuth, async (req, res) => {
     }
   })
 
-//update or edit method
-app
-    .route("/edit/:id")
-    .get((req, res) => {
-        const id = req.params.id;
-        MemwaQuestion.find({}, (err, questions) => {
-            res.render("edit.ejs", { memwaQuestions: questions, idQuestion: id });
-        });
-    })
-    .post((req, res) => {
-        const id = req.params.id;
-        MemwaQuestion.findByIdAndUpdate(
-            id,
-            {
-                name: req.body.name,
-                tag: req.body.tag
-            },
-
-            err => {
-                if (err) return res.status(500).send(err);
-                res.redirect("/");
-            });
-    });
-
 //delete method
 app
     .route('/remove/:id')
@@ -175,7 +152,7 @@ app.get('/search', async(req, res) => {
     // console.log(questions);
     
     // Render the search results template with the matching questions
-    res.render('searchResults', { questions: questions, query:query });
+    res.render('searchResults', { questions: questions, query:query, user: req.user,});
   });
 });
 
