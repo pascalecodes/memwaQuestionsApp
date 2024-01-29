@@ -1,0 +1,51 @@
+
+<section class="py-5 text-center container">
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <h6>User Dashboard</h6>
+    <button onclick="window.location.href = '/' " class="home">HOME</button>
+    <h1 class="fw-light">Welcome <%= user.firstName %></h1>
+  </div>
+</section>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <!-- Profile Section -->
+          <div>
+              <h5>Profile Info</h5>
+                <p><strong>First Name</strong>: <%= user.firstName %></p>
+                <p><strong>Last Name</strong>: <%= user.lastName %></p>
+                <p><strong>Email</strong>: <%= user.email %></p>
+                <a href="/logout" class="col-3 btn btn-danger">Logout</a>
+              </div>
+          </div>
+          <div class="mt-5">
+            <h4>Add a Question to the Database</h4>
+            <!-- <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Title*</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+              </div>
+              <div class="mb-3">
+                <label for="caption" class="form-label">Caption*</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>            
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form> -->
+            <form action="/" method="POST" class="question-header">
+              <div class="mb-3">
+                <textarea rows="6" cols="50" name="name" placeholder="question"></textarea>
+              </div>
+              <div class="mb-3">
+                <input type="text" name="tag" placeholder="tags" style="width: 360px">
+              </div>
+              <div class="mb-3">
+                <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
+              </div>
+          </form>
+          </div>
+      </div>
+
+     
+  </div>
+</div>
+
