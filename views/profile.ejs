@@ -1,24 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memwa Search Results</title>
 
-<section class="py-5 text-center container">
-  <div class="col-lg-6 col-md-8 mx-auto">
-    <h6>User Dashboard</h6>
-    <button onclick="window.location.href = '/' " class="home">HOME</button>
-    <h1 class="fw-light">Welcome <%= user.firstName %></h1>
-  </div>
-</section>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+  <!-- icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- stylesheet link -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <section class="py-5 text-center container">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h6>User Dashboard</h6>
+        <h1 class="fw-light">Welcome <%= user.firstName %></h1>
+      </div>
+    </section>
+  </header>
+
+<div class="container" style="padding: 20px;">
+      <div class="question-header">
           <!-- Profile Section -->
-          <div>
-              <h5>Profile Info</h5>
-                <p><strong>First Name</strong>: <%= user.firstName %></p>
-                <p><strong>Last Name</strong>: <%= user.lastName %></p>
-                <p><strong>Email</strong>: <%= user.email %></p>
-                <a href="/logout" class="col-3 btn btn-danger">Logout</a>
-              </div>
-          </div>
-          <div class="mt-5">
+          <section>
+            <h5>Profile Info</h5>
+              <p>First Name: <strong style="color: blue"><%= user.firstName %></strong></p>
+              <p>Last Name: <strong style="color: blue"><%= user.lastName %></strong></p>
+              <p>Email: <strong style="color: blue"><%= user.email %></strong></p>
+          </section>
+          <a href="/logout" class="col-3 btn btn-danger" style="padding: 30px;">Logout</a>
+      </div>
+<div class="container" style="padding: 20px;">
+  <div class="question-header">
+            <section>
             <h4>Add a Question to the Database</h4>
             <!-- <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
@@ -31,21 +53,23 @@
               </div>            
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form> -->
-            <form action="/" method="POST" class="question-header">
+            <form action="/" method="POST">
               <div class="mb-3">
-                <textarea rows="6" cols="50" name="name" placeholder="question"></textarea>
+                <textarea rows="3" cols="100" name="name" placeholder="question"></textarea>
               </div>
               <div class="mb-3">
-                <input type="text" name="tag" placeholder="tags" style="width: 360px">
+                <input type="text" name="tag" placeholder="tags" style="width: 300px">
               </div>
               <div class="mb-3">
                 <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
               </div>
           </form>
-          </div>
+         </section>
+          <button onclick="window.location.href = '/' " class="home">HOME</button>         
       </div>
-
-     
   </div>
 </div>
+</body>
 
+
+</html>
