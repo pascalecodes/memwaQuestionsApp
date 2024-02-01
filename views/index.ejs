@@ -28,13 +28,13 @@
                 <% if (user) { %>
                 <a href="/profile" type="button" class="btn btn-outline-light me-2">Profile</a>
                 <% } else { %>
-                <a href="/login" type="button" class="btn btn-outline-light me-2">Login</a>
+                <a href="/login" type="button" class="btn btn-outline-light me-2 ">Login</a>
                 <% } %>
             </button>
             <!-- <button><a href="/signup" type="button" class="btn btn-warning"> Sign-up </a></button> -->
             <% if (!user) { %>
                 <button>
-                  <a href="/signup" type="button" class="btn btn-outline-light me-2">Signup</a>
+                  <a href="/signup" type="button">Signup</a>
                 </button>
             <% } %>
         </div>
