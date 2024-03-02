@@ -72,22 +72,48 @@ app.get('/', async (req, res) =>{
 })
 
 //post method= send to database
+// app.post('/', async (req, res) => {
+//     const memwaQuestion = new MemwaQuestion (
+//         {
+//             name: req.body.name,
+//             tag: req.body.tag
+//         }
+//     )
+//     try {
+//         await memwaQuestion.save()
+//         console.log(memwaQuestion)
+//         res.redirect('/')
+//     } catch(err) {
+//         if (err) return res.status(500).send(err)
+//         res.redirect('/')
+//     }
+// })
+
+//post to send multiple questions to database
 app.post('/', async (req, res) => {
-    const memwaQuestion = new MemwaQuestion (
-        {
-            name: req.body.name,
-            tag: req.body.tag
-        }
-    )
-    try {
-        await memwaQuestion.save()
-        console.log(memwaQuestion)
-        res.redirect('/')
-    } catch(err) {
-        if (err) return res.status(500).send(err)
-        res.redirect('/')
+  try {
+    const questions = req.body.questions.split('\n'); // Split the bulk input into an array of individual questions
+    const tag = req.body.tag;
+    
+    for (let i = 0; i < questions.length; i++) {
+      const questionText = questions[i].trim();
+      
+      if (questionText) { // Skip empty lines
+        const question = new Question({
+          name: questionText,
+          tag: tag
+        });
+        
+        await question.save(); // Save each question individually
+        console.log(question)
+      }
     }
-})
+    res.redirect('/');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 //new route for signup
 app.get('/signup', authController.getSignup)
