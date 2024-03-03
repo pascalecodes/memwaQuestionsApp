@@ -99,7 +99,7 @@ app.post('/', async (req, res) => {
       const questionText = questions[i].trim();
       
       if (questionText) { // Skip empty lines
-        const question = new Question({
+        const question = new MemwaQuestion({
           name: questionText,
           tag: tag
         });
