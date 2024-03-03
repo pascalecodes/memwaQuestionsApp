@@ -72,11 +72,26 @@
         </div>
         <% if (user) { %>
         <div>
-            <form action="/" method="POST" class="question-header">
+                <!-- add a single question -->
+            <!-- <form action="/" method="POST" class="question-header">
                 <textarea rows="2" cols="80" name="name" placeholder="question"></textarea>
                 <input type="text" name="tag" placeholder="tag">
                 <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
-            </form>
+            </form> -->
+
+            <!-- add bulk questions -->
+            <form action="/" method="POST">
+                <div class="mb-3">
+                  <!-- <textarea rows="3" cols="100" name="name" placeholder="question"></textarea> -->
+                  <textarea rows="6" cols="80" name="questions" placeholder="Enter multiple questions, one per line"></textarea>
+                </div>
+                <div class="mb-3">
+                  <input type="text" name="tag" placeholder="tags" style="width: 300px">
+                </div>
+                <div class="mb-3">
+                  <button type="submit"><span class='fas fa-plus'></span>Add Question</button>
+                </div>
+              </form>
         </div>
         <% } %>
        
