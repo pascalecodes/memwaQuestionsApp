@@ -136,6 +136,29 @@ app.get("/profile", ensureAuth, async (req, res) => {
     }
   })
 
+//update or edit method
+app
+    .route("/edit/:id")
+    .get((req, res) => {
+        const id = req.params.id;
+        MemwaQuestion.find({}, (err, questions) => {
+            res.render("edit.ejs", { memwaQuestions: questions, idQuestion: id });
+        });
+    })
+    .post((req, res) => {
+        const id = req.params.id;
+        MemwaQuestion.findByIdAndUpdate(
+            id,
+            {
+                name: req.body.name,
+                tag: req.body.tag
+            },
+            err => {
+                if (err) return res.status(500).send(err);
+                res.redirect("/");
+            });
+    });
+
 //delete method
 app
     .route('/remove/:id')
