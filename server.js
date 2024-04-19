@@ -174,7 +174,7 @@ app
 app.get('/questions', async(req, res)=> {
     const questions = await MemwaQuestion.find()
     // res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
-    res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
+    res.header('Access-Control-Allow-Origin', 'https://memwaappv2.onrender.com');
 
     // // Check if the request origin is localhost
     // const isLocalhost = req.headers.origin.includes('localhost');
