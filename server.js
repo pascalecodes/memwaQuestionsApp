@@ -174,17 +174,17 @@ app
 app.get('/questions', async(req, res)=> {
     const questions = await MemwaQuestion.find()
     // res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
-    // res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
+    res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
 
-    // Check if the request origin is localhost
-    const isLocalhost = req.headers.origin.includes('localhost');
+    // // Check if the request origin is localhost
+    // const isLocalhost = req.headers.origin.includes('localhost');
 
-    // Set the appropriate Access-Control-Allow-Origin header based on the environment
-    if (isLocalhost) {
-      res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
-    } else {
-      res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
-    }
+    // // Set the appropriate Access-Control-Allow-Origin header based on the environment
+    // if (isLocalhost) {
+    //   res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
+    // } else {
+    //   res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
+    // }
 
     res.json(questions)
 
