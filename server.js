@@ -183,7 +183,7 @@ app.get('/questions', async(req, res)=> {
     if (isLocalhost) {
       res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
     } else {
-      res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
+      res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com/questions');
     }
 
     res.json(questions)
