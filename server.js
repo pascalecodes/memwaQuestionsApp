@@ -173,19 +173,23 @@ app
 //new route for getting questions
 app.get('/questions', async(req, res)=> {
     const questions = await MemwaQuestion.find()
-    //res.header('Access-Control-Allow-Origin', 'http://localhost:5174');
-   res.header('Access-Control-Allow-Origin', 'http://localhost:3131', 'http://localhost:5174', 'https://memwaappv2.onrender.com', 'https://mern-memwa.onrender.com/');
+  //res.header('Access-Control-Allow-Origin', 'http://localhost:5174');
+  // res.header('Access-Control-Allow-Origin', 'http://localhost:3131', 'http://localhost:5174', 'https://memwaappv2.onrender.com', 'https://mern-memwa.onrender.com');
     // res.header('Access-Control-Allow-Origin', 'https://memwaappv2.onrender.com');
 
-    // // Check if the request origin is localhost
-    // const isLocalhost = req.headers.origin.includes('localhost');
+   // Set the allowed origins in an array
+   const allowedOrigins = [
+    'http://localhost:3131',
+    'http://localhost:5174',
+    'https://memwaappv2.onrender.com',
+    'https://mern-memwa.onrender.com',
+  ];
 
-    // // Set the appropriate Access-Control-Allow-Origin header based on the environment
-    // if (isLocalhost) {
-    //   res.header('Access-Control-Allow-Origin', 'http://localhost:3131');
-    // } else {
-    //   res.header('Access-Control-Allow-Origin', 'https://memwaquestionsapp.onrender.com');
-    // }
+    // Check if the request origin is in the allowed origins
+    const requestOrigin = req.headers.origin;
+    if (allowedOrigins.includes(requestOrigin)) {
+      res.header('Access-Control-Allow-Origin', requestOrigin);
+    }
 
     res.json(questions)
 
