@@ -7,6 +7,10 @@ const questionSchema = new mongoose.Schema({
     tag: {
         type: String,
         required: false
+    },
+    category: {
+        type: String,
+        required: false
     }
 })
 
