@@ -31,6 +31,7 @@
                             <form action= "/edit/<%= question._id %>"method = "POST">
                                 <textarea rows="2" cols="80" name="name"><%=question.name %></textarea>
                                 <input type="text" name="tag" value="<%=question.tag %>">
+                                <input type="text" name="category" value="<%=question.category %>">
                                 <button type="submit" class="confirm">Confirm</button>
                                 <button type="cancel" <a href="/" class="cancel">Cancel </a></button>
                             </form>
