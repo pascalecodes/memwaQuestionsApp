@@ -101,7 +101,8 @@ app.post('/', async (req, res) => {
       if (questionText) { // Skip empty lines
         const question = new MemwaQuestion({
           name: questionText,
-          tag: tag
+          tag: tag,
+          category: category,
         });
         
         await question.save(); // Save each question individually
@@ -151,8 +152,10 @@ app
             id,
             {
                 name: req.body.name,
-                tag: req.body.tag
+                tag: req.body.tag,
+                category: req.body.category
             },
+            
             err => {
                 if (err) return res.status(500).send(err);
                 res.redirect("/");
@@ -213,7 +216,8 @@ app.get('/search', async(req, res) => {
   MemwaQuestion.find({
     $or: [
         { name: { $regex: query, $options: 'i' } },
-        { tag: { $regex: query, $options: 'i' } }
+        { tag: { $regex: query, $options: 'i' } },
+        { category: { $regex: query, $options: 'i'}}
       ]
   }, (err, questions) => {
     if (err) return res.status(500).send(err);
