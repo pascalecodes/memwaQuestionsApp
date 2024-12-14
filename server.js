@@ -94,6 +94,7 @@ app.post('/', async (req, res) => {
   try {
     const questions = req.body.questions.split('\n'); // Split the bulk input into an array of individual questions
     const tag = req.body.tag;
+    const category = req.body.category;
     
     for (let i = 0; i < questions.length; i++) {
       const questionText = questions[i].trim();
@@ -101,7 +102,8 @@ app.post('/', async (req, res) => {
       if (questionText) { // Skip empty lines
         const question = new MemwaQuestion({
           name: questionText,
-          tag: tag
+          tag: tag,
+          category: category
         });
         
         await question.save(); // Save each question individually
