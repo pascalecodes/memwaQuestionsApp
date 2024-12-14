@@ -101,8 +101,7 @@ app.post('/', async (req, res) => {
       if (questionText) { // Skip empty lines
         const question = new MemwaQuestion({
           name: questionText,
-          tag: tag,
-          category: category,
+          tag: tag
         });
         
         await question.save(); // Save each question individually
