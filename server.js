@@ -222,7 +222,7 @@ app.get('/search', async(req, res) => {
         { name: { $regex: query, $options: 'i' } },
         { tag: { $regex: query, $options: 'i' } },
         { category: { $regex: query, $options: 'i'}},
-        { group: { $regex: query, $options: 'i'}}
+        // { group: { $regex: query, $options: 'i'}}
       ]
   }, (err, questions) => {
     if (err) return res.status(500).send(err);
