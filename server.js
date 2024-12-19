@@ -95,6 +95,7 @@ app.post('/', async (req, res) => {
     const questions = req.body.questions.split('\n'); // Split the bulk input into an array of individual questions
     const tag = req.body.tag;
     const category = req.body.category;
+    const group = req.body.group;
     
     for (let i = 0; i < questions.length; i++) {
       const questionText = questions[i].trim();
@@ -103,7 +104,8 @@ app.post('/', async (req, res) => {
         const question = new MemwaQuestion({
           name: questionText,
           tag: tag,
-          category: category
+          category: category,
+          group: group,
         });
         
         await question.save(); // Save each question individually
@@ -154,7 +156,8 @@ app
             {
                 name: req.body.name,
                 tag: req.body.tag,
-                category: req.body.category
+                category: req.body.category,
+                group: req.body.group
             },
             
             err => {
@@ -218,7 +221,8 @@ app.get('/search', async(req, res) => {
     $or: [
         { name: { $regex: query, $options: 'i' } },
         { tag: { $regex: query, $options: 'i' } },
-        { category: { $regex: query, $options: 'i'}}
+        { category: { $regex: query, $options: 'i'}},
+        { group: { $regex: query, $options: 'i'}}
       ]
   }, (err, questions) => {
     if (err) return res.status(500).send(err);
