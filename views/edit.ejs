@@ -29,12 +29,13 @@
                     <% if (question._id==idQuestion) { %>
                         <li class="question-list-item">
                             <form action= "/edit/<%= question._id %>"method = "POST">
-                                <h2>Question:</h2>
+                                <h3>Question:</h3>
                                 <textarea rows="2" cols="80" name="name"><%=question.name %></textarea>
-                                <h2>Tags:</h2>
+                                <h3>Tags:</h3>
                                 <input type="text" name="tag" value="<%=question.tag %>">
-                                <h2>Categories:</h2>
+                                <h3>Categories:</h3>
                                 <input type="text" name="category" value="<%=question.category %>">
+                                <input type="number" name="group" value="<%=question.group %>">
                                 <button type="submit" class="confirm">Confirm</button>
                                 <button type="cancel" <a href="/" class="cancel">Cancel </a></button>
                             </form>
