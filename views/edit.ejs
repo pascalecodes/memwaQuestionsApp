@@ -23,7 +23,7 @@
     </header>
     <section class="question-container">
         <section class='question'>
-            <ul class="question-list">
+            <ul class="question-list" style="list-style-type: none">
                 <% let index = 1; %>
                 <% memwaQuestions.forEach(question => {%>
                     <% if (question._id==idQuestion) { %>
@@ -35,6 +35,7 @@
                                 <input type="text" name="tag" value="<%=question.tag %>">
                                 <h3>Categories:</h3>
                                 <input type="text" name="category" value="<%=question.category %>">
+                                <h3>Group:</h3>
                                 <input type="number" name="group" value="<%=question.group %>">
                                 <button type="submit" class="confirm">Confirm</button>
                                 <button type="cancel" <a href="/" class="cancel">Cancel </a></button>
