@@ -233,6 +233,18 @@ app.get('/search', async(req, res) => {
   });
 });
 
+// ****** Route to get sorted questions
+app.get('/sort', async (req, res) => {
+  const sortBy = req.query.sortBy || 'category'; // Default sort by category
+  const order = (sortBy === 'group' || sortBy === 'tag') ? sortBy: 'category';
+
+  try {
+      const questions = await MemwaQuestion.find().sort({ [order]: 1 }); // Sort ascending
+      res.render('sortResults', { questions, sortBy });
+  } catch (err) {
+      res.status(500).send(err.message);
+  }
+});
 
 //check to see if the question has already been called from the database
 app.get('/questions/:id/pulled', async (req, res) => {
