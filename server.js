@@ -235,8 +235,8 @@ app.get('/search', async(req, res) => {
 
 // ****** Route to get sorted questions
 app.get('/sort', async (req, res) => {
-  const sortBy = req.query.sortBy || 'category'; // Default sort by category
-  const order = (sortBy === 'group' || sortBy === 'tag') ? sortBy: 'category';
+  const sortBy = req.query.sortBy || 'tag'; // Default sort by category
+  const order = (sortBy === 'group' || sortBy === 'category') ? sortBy: 'tag';
 
   try {
       const questions = await MemwaQuestion.find().sort({ [order]: 1 }); // Sort ascending
