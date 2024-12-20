@@ -70,7 +70,7 @@
     
         <ul>
             <% questions.forEach(question => { %>
-                <li><strong><%= question.number %></strong>: <%= question.question_text %> (Category: <%= question.category %>)</li>
+                <li><strong><%= question._id %></strong>: <%= question.name %> (Category: <%= question.category %>)</li>
             <% }) %>
         </ul>
 

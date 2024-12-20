@@ -240,7 +240,7 @@ app.get('/sort', async (req, res) => {
 
   try {
       const questions = await MemwaQuestion.find().sort({ [order]: 1 }); // Sort ascending
-      res.render('sortResults', { questions, sortBy });
+      res.render('sortResults', { sortBy, questions });
   } catch (err) {
       res.status(500).send(err.message);
   }
