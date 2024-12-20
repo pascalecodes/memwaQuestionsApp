@@ -49,6 +49,17 @@
                 <button type="submit">Search</button>
             </form>   
         </div>
+
+        <div class="sort">
+            <form action="/sort" method="GET">
+                <select name="sortBy" onchange="this.form.submit()">
+                    <option value="category" <%= sortBy === 'category' ? 'selected' : '' %>>Sort by Category</option>
+                    <option value="group" <%= sortBy === 'group' ? 'selected' : '' %>>Sort by Group</option>
+                    <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Tag</option>
+                </select>
+            </form>
+        </div>
+
     </section>
         <div class='question' style="padding: 20px;">
             <ul class="question-list">
