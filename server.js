@@ -234,14 +234,43 @@ app.get('/search', async(req, res) => {
 });
 
 // ****** Route to get sorted questions
+// app.get('/sort', async (req, res) => {
+//   const sortBy = req.query.sortBy || 'tag'; // Default sort by category
+//   const order = (sortBy === 'group' || sortBy === 'category') ? sortBy: 'tag';
+
+//   try {
+//       const questions = await MemwaQuestion.find().sort({ [order]: 1 }); // Sort ascending
+//       console.log(questions); // Add this line to debug
+//       res.render('sortResults', { sortBy:sortBy, questions: questions, user: req.user });
+//   } catch (err) {
+//       res.status(500).send(err.message);
+//   }
+// });
+
+// ***update sort function to pull values from database and have drop down option
 app.get('/sort', async (req, res) => {
-  const sortBy = req.query.sortBy || 'tag'; // Default sort by category
-  const order = (sortBy === 'group' || sortBy === 'category') ? sortBy: 'tag';
+  const sortBy = req.query.sortBy || 'category';
+  const searchValue = req.query.searchValue || '';
+  let filter = {};
+
+  // Fetch unique values for categories, groups, and tags
+  const categories = await MemwaQuestion.distinct('category');
+  const groups = await MemwaQuestion.distinct('group');
+  const tags = await MemwaQuestion.distinct('tag');
+
+  // Construct the filter based on the sortBy value
+  if (sortBy === 'group') {
+      filter.group = Number(searchValue);
+  } else if (sortBy === 'tag') {
+      filter.tag = { $regex: searchValue, $options: 'i' };
+  } else {
+      filter.category = { $regex: searchValue, $options: 'i' };
+  }
 
   try {
-      const questions = await MemwaQuestion.find().sort({ [order]: 1 }); // Sort ascending
+      const questions = await MemwaQuestion.find(filter).sort({ [sortBy]: 1 });
+      res.render('sortResults', { ortBy:sortBy, questions: questions, user: req.user, searchValue:searchValue, categories:categories, groups:groups, tags:tags });
       console.log(questions); // Add this line to debug
-      res.render('sortResults', { sortBy:sortBy, questions: questions, user: req.user });
   } catch (err) {
       res.status(500).send(err.message);
   }

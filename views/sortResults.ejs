@@ -59,8 +59,8 @@
             </ul>
 
         </section> -->
-
-        <form action="/sort" method="GET">
+<!-- working form -->
+        <!-- <form action="/sort" method="GET">
             <select name="sortBy" onchange="this.form.submit()">
                 <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Tag</option>
                 <option value="group" <%= sortBy === 'group' ? 'selected' : '' %>>Sort by Group</option>
@@ -74,8 +74,45 @@
             <% }) %>
         </ul>
 
-<button onclick="window.location.href = '/' " class="home">HOME</button>
+<button onclick="window.location.href = '/' " class="home">HOME</button> -->
     <!-- </section> -->
+
+
+   <!-- test new -->
+   <form action="/sort" method="GET">
+    <select name="sortBy" onchange="this.form.submit()">
+        <option value="category" <%= sortBy === 'category' ? 'selected' : '' %>>Sort by Category</option>
+        <option value="group" <%= sortBy === 'group' ? 'selected' : '' %>>Sort by Group</option>
+        <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Tag</option>
+    </select>
+
+    <select name="searchValue">
+        <option value="">Select a value</option>
+        <% if (sortBy === 'category') { %>
+            <% categories.forEach(category => { %>
+                <option value="<%= category %>" <%= searchValue === category ? 'selected' : '' %>><%= category %></option>
+            <% }) %>
+        <% } else if (sortBy === 'group') { %>
+            <% groups.forEach(group => { %>
+                <option value="<%= group %>" <%= searchValue == group ? 'selected' : '' %>><%= group %></option>
+            <% }) %>
+        <% } else if (sortBy === 'tag') { %>
+            <% tags.forEach(tag => { %>
+                <option value="<%= tag %>" <%= searchValue === tag ? 'selected' : '' %>><%= tag %></option>
+            <% }) %>
+        <% } %>
+    </select>
+
+    <button type="submit">Sort</button>
+</form>
+
+<ul>
+    <% questions.forEach(question => { %>
+        <li><strong><%= question._id %></strong>: <%= question.name %> (Category: <%= question.category %>)</li>
+    <% }) %>
+</ul>
+
+<button onclick="window.location.href = '/' " class="home">HOME</button>
 </body>
 
 
