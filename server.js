@@ -270,7 +270,6 @@ app.get('/sort', async (req, res) => {
   try {
       const questions = await MemwaQuestion.find(filter).sort({ [sortBy]: 1 });
       res.render('sortResults', { ortBy:sortBy, questions: questions, user: req.user, searchValue:searchValue, categories:categories, groups:groups, tags:tags });
-      console.log(questions); // Add this line to debug
   } catch (err) {
       res.status(500).send(err.message);
   }
