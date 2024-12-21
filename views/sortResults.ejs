@@ -62,20 +62,20 @@
 
         <form action="/sort" method="GET">
             <select name="sortBy" onchange="this.form.submit()">
-                <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Category</option>
+                <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Tag</option>
                 <option value="group" <%= sortBy === 'group' ? 'selected' : '' %>>Sort by Group</option>
-                <option value="category" <%= sortBy === 'category' ? 'selected' : '' %>>Sort by Tag</option>
+                <option value="category" <%= sortBy === 'category' ? 'selected' : '' %>>Sort by Category</option>
             </select>
         </form>
     
         <ul>
             <% questions.forEach(question => { %>
-                <li><strong><%= question._id %></strong>: <%= question.name %> (Category: <%= question.category %>)</li>
+                <li><strong><%= question.id %></strong>: <%= question.name %> (Category: <%= question.category %>)</li>
             <% }) %>
         </ul>
 
 <button onclick="window.location.href = '/' " class="home">HOME</button>
-    </section>
+    <!-- </section> -->
 </body>
 
 
