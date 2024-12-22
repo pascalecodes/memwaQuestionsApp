@@ -50,36 +50,7 @@
             </form>   
         </div>
 
-        <div class="search"> 
-            <form action="/sort" method="GET">
-                <select name="sortBy" onchange="this.form.submit()">
-                    <option value="category" <%= sortBy === 'category' ? 'selected' : '' %>>Sort by Category</option>
-                    <option value="group" <%= sortBy === 'group' ? 'selected' : '' %>>Sort by Group</option>
-                    <option value="tag" <%= sortBy === 'tag' ? 'selected' : '' %>>Sort by Tag</option>
-                </select>
-            
-                <select name="searchValue">
-                    <option value="">Select a value</option>
-                    <% if (sortBy === 'category') { %>
-                        <% categories.forEach(category => { %>
-                            <option value="<%= category %>" <%= searchValue === category ? 'selected' : '' %>><%= category %></option>
-                        <% }) %>
-                    <% } else if (sortBy === 'group') { %>
-                        <% groups.forEach(group => { %>
-                            <option value="<%= group %>" <%= searchValue == group ? 'selected' : '' %>><%= group %></option>
-                        <% }) %>
-                    <% } else if (sortBy === 'tag') { %>
-                        <% tags.forEach(tag => { %>
-                            <option value="<%= tag %>" <%= searchValue === tag ? 'selected' : '' %>><%= tag %></option>
-                        <% }) %>
-                    <% } %>
-                </select>
-            
-                    <button type="submit">Sort</button>
-                </form>  
-        </div>
-
-
+        
     </section>
         <div class='question' style="padding: 20px;">
             <ul class="question-list">
