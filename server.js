@@ -249,7 +249,7 @@ app.get('/search', async(req, res) => {
 
 // ***update sort function to pull values from database and have drop down option
 app.get('/sort', async (req, res) => {
-  const sortBy = req.query.sortBy || 'category';
+  const sortBy = req.query.sortBy || 'tag';
   const searchValue = req.query.searchValue || '';
   let filter = {};
 
