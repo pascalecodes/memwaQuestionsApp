@@ -10,10 +10,12 @@ body {
 }
 
 .search {
+    display: flex;
     align-items:left ;
     justify-content: left;
 }
 .sort {
+    display: flex;
     align-items:right ;
     justify-content: right;
 }
@@ -35,7 +37,7 @@ body {
 
 .search-container {
     display: flex;
-
+    justify-content: space-between;
 }
 
 .question {
