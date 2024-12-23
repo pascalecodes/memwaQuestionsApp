@@ -33,6 +33,11 @@ body {
     align-items: center;
 }
 
+.search-container {
+    display: flex;
+
+}
+
 .question {
     width: 90%;
 }

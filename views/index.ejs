@@ -42,7 +42,7 @@
         <h2>Memwa Questions Database</h2>
         <p>Total questions: <%= memwaQuestions.length %></p>
     </header>
-    <section class="question-container">
+    <section class="search-container">
         <div class="search"> 
             <form action="/search" method="GET">
                 <input type="text" name="query" placeholder="Search...">
@@ -51,8 +51,7 @@
         </div>
         <div class="sort">
             <button onclick="window.location.href = '/sort' " class="home"> Go to Sort</button>  
-        </div>
-        
+        </div>   
     </section>
         <div class='question' style="padding: 20px;">
             <ul class="question-list">
