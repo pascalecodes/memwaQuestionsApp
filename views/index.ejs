@@ -51,9 +51,11 @@
         </div>
         <div>
             
-                <input type="sort" name="query" placeholder="Sort">
+                <input type="sort" name="sort" placeholder="Sort">
          
-            <button onclick="window.location.href = '/sort' " class="home">Sort</button>
+            <button onclick="window.location.href = `/sort?sortBy=tag&searchValue=%${sort}` " class="home">Sort</button>
+            
+            
         </div>
 
         
