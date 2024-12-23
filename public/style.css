@@ -10,12 +10,12 @@ body {
 }
 
 .search {
-    align-items:center ;
-    justify-content: center;
+    align-items:left ;
+    justify-content: left;
 }
 .sort {
     align-items:right ;
-    justify-content: center;
+    justify-content: right;
 }
 
 .header{
