@@ -13,6 +13,10 @@ body {
     align-items:center ;
     justify-content: center;
 }
+.sort {
+    align-items:right ;
+    justify-content: center;
+}
 
 .header{
   color: #3563E9;
