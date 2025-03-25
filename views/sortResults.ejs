@@ -90,7 +90,7 @@
             </select>
         
             <select name="searchValue">
-                <option value="">Select a value</option>
+                <option value="None">Select a value</option>
                 <% if (sortBy === 'category') { %>
                     <% categories.forEach(category => { %>
                         <option value="<%= category %>" <%= searchValue === category ? 'selected' : '' %>><%= category %></option>
