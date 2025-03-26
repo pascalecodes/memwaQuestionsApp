@@ -102,6 +102,7 @@ ul {
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
+    color: slategray;
     flex-grow: 1; /* Added to make the content take remaining space */
 }
 
