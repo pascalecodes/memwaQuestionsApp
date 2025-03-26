@@ -65,7 +65,7 @@
                         <div class="question-list-item-content">
                             <%= question.tag %>
                             <% if (user) { %>
-                            <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit'></span> </a>
+                            <a href="/edit/<%=question._id %>" class="edit"><span class='fas fa-edit text-blue-700'></span> </a>
                             <a href="/remove/<%=question._id %>" class="remove" onclick="return confirm('Are you sure you want to delete this question?');"><span class='fas fa-times'></span></a>
                             <% } %>
                         </div>
